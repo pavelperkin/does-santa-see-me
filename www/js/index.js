@@ -27,6 +27,5 @@ $( "a#check_it" ).click(function() {
     }
     else {
       $('#does_not_page').show();
-    }
-    
+    }    
 });
