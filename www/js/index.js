@@ -27,5 +27,11 @@ $( "a#check_it" ).click(function() {
     }
     else {
       $('#does_not_page').show();
-    }    
+    }
+});
+
+$( "a.try_again" ).click(function() {
+    $('#main_page').show();
+    $('#does_page').hide();
+    $('#does_not_page').hide();
 });
