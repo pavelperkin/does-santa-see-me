@@ -30,6 +30,7 @@ var app = {
         page.addEventListener("touchend", actionHandler, false);
 
         function actionHandler() {
+            navigator.notification.vibrate(500);
             var className = 'app';
 
             if(!app.isPlayed) {
