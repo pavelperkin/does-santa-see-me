@@ -41,6 +41,7 @@ var app = {
         }
     },
     isSantaLooking: function () {
+        navigator.notification.vibrate(500);        
         return Math.random() < 0.5;
     }
 };
