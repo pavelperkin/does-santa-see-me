@@ -29,10 +29,9 @@ var app = {
         //page.addEventListener("click", actionHandler, false);
         page.addEventListener("touchend", actionHandler, false);
 
-        function actionHandler() {
-            navigator.notification.vibrate(500);
-            var className = 'app';
+        function actionHandler() {            
 
+            var className = 'app';
             if(!app.isPlayed) {
                 className += app.isSantaLooking() ? ' sees' : ' doesnt-see';
             }
@@ -42,6 +41,7 @@ var app = {
         }
     },
     isSantaLooking: function () {
-        return Math.random() < 0.75;
+        navigator.notification.vibrate(500);        
+        return Math.random() < 0.5;
     }
 };
