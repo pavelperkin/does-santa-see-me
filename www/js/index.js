@@ -1,6 +1,7 @@
 var app = {
     initialize: function() {
         this.bindEvents();
+        this.initSanta();
     },
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
@@ -17,21 +18,29 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+
+    // Santa shit
+    isPlayed: false,
+    initSanta: function(){
+        var app = this;
+        var page = document.getElementById('main_page');
+
+        page.addEventListener("click", actionHandler, false);
+        page.addEventListener("touchend", actionHandler, false);
+
+        function actionHandler() {
+            var className = 'app';
+
+            if(!app.isPlayed) {
+                className += app.isSantaLooking() ? ' sees' : ' doesnt-see';
+            }
+
+            app.isPlayed = !app.isPlayed;
+            page.className = className;
+        }
+    },
+    isSantaLooking: function () {
+        return Math.random() < 0.75;
     }
 };
-
-$( "a#check_it" ).click(function() {
-    $('#main_page').hide();
-    if(Math.random() < 0.75) {
-      $('#does_page').show();
-    }
-    else {
-      $('#does_not_page').show();
-    }
-});
-
-$( "a.try_again" ).click(function() {
-    $('#main_page').show();
-    $('#does_page').hide();
-    $('#does_not_page').hide();
-});
