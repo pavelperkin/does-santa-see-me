@@ -26,8 +26,8 @@ var app = {
         var app = this;
         var page = document.getElementById('main_page');
 
-        //page.addEventListener("click", actionHandler, false);
-        page.addEventListener("touchend", actionHandler, false);
+        page.addEventListener("click", actionHandler, false);
+        // page.addEventListener("touchend", actionHandler, false);
 
         function actionHandler() {            
 
